@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LiterasiKuy</title>
+<title>Rak Buku - Ruang Literasi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -14,184 +16,95 @@
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
+    min-height:100vh;
+    overflow-x:hidden;
     background:linear-gradient(
         to bottom,
-        #ffffff 0%,
-        #e8f4ff 45%,
-        #cde8ff 75%,
-        #1e3a5f 100%
+        #bde9ff 0%,
+        #ffffff 45%,
+        #1d4e89 100%
     );
-}
-
-/* Container */
-.container{
-    width:100%;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
     position:relative;
-    z-index:2;
 }
 
 /* Logo */
-.logo{
-    width:260px;
-    animation:logoMasuk 2s ease;
-    filter:drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+.logo-kiri{
+    position:fixed;
+    top:15px;
+    left:20px;
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    object-fit:cover;
+    background:white;
+    padding:4px;
+    box-shadow:0 0 15px rgba(255,255,255,0.9);
+    z-index:1000;
 }
 
-@keyframes logoMasuk{
-    from{
-        opacity:0;
-        transform:translateY(-50px) scale(.8);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-}
-
-.judul{
-    margin-top:20px;
-    color:#183153;
-    font-size:2rem;
-    font-weight:bold;
-    animation:muncul 2.5s ease;
-}
-
-@keyframes muncul{
-    from{
-        opacity:0;
-    }
-    to{
-        opacity:1;
-    }
-}
-
-.subjudul{
-    margin-top:12px;
-    color:#36506f;
-    font-size:1.2rem;
-    font-weight:600;
-    animation:naikTurun 2s infinite ease-in-out;
-}
-
-@keyframes naikTurun{
-    50%{
-        transform:translateY(-8px);
-    }
-}
-
-.btn{
-    margin-top:35px;
-    padding:15px 40px;
-    border:none;
+/* Navbar */
+nav{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(10px);
+    padding:12px 30px;
     border-radius:50px;
-    background:linear-gradient(
-        45deg,
-        #4da6ff,
-        #1e3a5f
-    );
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.4s;
-    box-shadow:0 10px 25px rgba(30,58,95,.3);
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+    z-index:1000;
 }
 
-.btn:hover{
-    transform:translateY(-5px) scale(1.05);
+nav a{
+    text-decoration:none;
+    color:#1d4e89;
+    font-weight:600;
+    margin:0 15px;
+    transition:0.3s;
 }
 
-/* AWAN */
+nav a:hover{
+    color:#4da8ff;
+}
 
+/* Awan */
 .cloud{
     position:absolute;
     background:white;
-    border-radius:50px;
-    opacity:0.85;
+    border-radius:100px;
+    opacity:0.9;
+    z-index:1;
 }
 
-.cloud::before,
-.cloud::after{
-    content:'';
+.cloud::before{
+    content:"";
     position:absolute;
+    width:90px;
+    height:90px;
     background:white;
     border-radius:50%;
+    top:-40px;
+    left:40px;
+}
+
+.cloud::after{
+    content:"";
+    position:absolute;
+    width:110px;
+    height:110px;
+    background:white;
+    border-radius:50%;
+    top:-50px;
+    right:35px;
 }
 
 .cloud1{
-    width:180px;
-    height:60px;
-    top:10%;
-    left:-250px;
-    animation:awan 30s linear infinite;
-}
-
-.cloud1::before{
-    width:70px;
-    height:70px;
-    top:-35px;
-    left:25px;
-}
-
-.cloud1::after{
-    width:90px;
+    width:280px;
     height:90px;
-    top:-45px;
-    right:20px;
-}
-
-.cloud2{
-    width:140px;
-    height:50px;
-    top:28%;
-    left:-200px;
-    animation:awan 40s linear infinite;
-    animation-delay:5s;
-}
-
-.cloud2::before{
-    width:60px;
-    height:60px;
-    top:-25px;
-    left:20px;
-}
-
-.cloud2::after{
-    width:75px;
-    height:75px;
-    top:-35px;
-    right:20px;
-}
-
-.cloud3{
-    width:220px;
-    height:70px;
-    top:18%;
-    left:-300px;
-    animation:awan 50s linear infinite;
-    animation-delay:10s;
-}
-
-.cloud3::before{
-    width:90px;
-    height:90px;
-    top:-40px;
-    left:35px;
-}
-
-.cloud3::after{
-    width:100px;
-    height:100px;
-    top:-50px;
-    right:25px;
+    top:160px;
+    left:-350px;
+    animation:awan 70s linear infinite;
 }
 
 @keyframes awan{
@@ -199,76 +112,337 @@ body{
         transform:translateX(0);
     }
     to{
-        transform:translateX(1700px);
+        transform:translateX(2000px);
     }
 }
 
-/* Bintang */
-
-.star{
+/* Glitter */
+.glitter{
     position:absolute;
-    color:white;
-    font-size:20px;
-    animation:kelapKelip 2s infinite;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    box-shadow:
+        0 0 5px white,
+        0 0 10px white,
+        0 0 15px white;
+    animation:kelapkelip 2s infinite alternate;
 }
 
-.star:nth-child(1){
-    top:15%;
-    right:20%;
-}
-
-.star:nth-child(2){
-    top:25%;
-    left:20%;
-}
-
-.star:nth-child(3){
-    top:40%;
-    right:10%;
-}
-
-@keyframes kelapKelip{
-    50%{
-        opacity:.3;
+@keyframes kelapkelip{
+    from{
+        opacity:0.3;
+        transform:scale(0.7);
     }
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding-top:150px;
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:3rem;
+    color:#0d3b66;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.9),
+        0 0 20px rgba(255,255,255,0.8),
+        0 0 30px rgba(77,168,255,0.5);
+}
+
+.hero p{
+    margin-top:12px;
+    color:#234;
+    font-size:1.1rem;
+}
+
+/* Rak Buku */
+.rak-container{
+    display:flex;
+    justify-content:center;
+    padding:60px 20px 40px;
+    position:relative;
+    z-index:2;
+}
+
+.rak{
+    width:90%;
+    max-width:1100px;
+}
+
+.lantai{
+    height:20px;
+    background:#7a4b2f;
+    border-radius:10px;
+    margin:55px 0;
+    box-shadow:0 6px 12px rgba(0,0,0,0.25);
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:12px;
+    padding-bottom:15px;
+}
+
+.buku{
+    width:50px;
+    border-radius:5px 5px 0 0;
+    box-shadow:2px 2px 5px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.buku:hover{
+    transform:translateY(-8px);
+}
+
+.b1{height:120px;background:#ff6b6b;}
+.b2{height:90px;background:#4dabf7;}
+.b3{height:110px;background:#51cf66;}
+.b4{height:140px;background:#845ef7;}
+.b5{height:100px;background:#fcc419;}
+.b6{height:130px;background:#ff922b;}
+.b7{height:115px;background:#f06595;}
+.b8{height:95px;background:#20c997;}
+
+/* Daftar Rak Buku */
+.daftarRak-container{
+    background:rgba(255,255,255,0.95);
+    border-radius:15px;
+    padding:30px;
+    margin:40px auto;
+    max-width:900px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    position:relative;
+    z-index:2;
+}
+
+.daftarRak-container h2{
+    color:#0d3b66;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.daftarRak-list{
+    list-style:none;
+}
+
+.daftarRak-list li{
+    padding:12px;
+    margin:8px 0;
+    background:linear-gradient(135deg, #4cc9f0 0%, #0096c7 100%);
+    color:white;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+
+.daftarRak-list li span{
+    flex:1;
+}
+
+.daftarRak-list li div{
+    display:flex;
+    gap:5px;
+}
+
+.daftarRak-list li div button{
+    background:rgba(255,255,255,0.3);
+    border:none;
+    color:white;
+    padding:6px 12px;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+    font-size:0.85rem;
+}
+
+.daftarRak-list li div button:hover{
+    background:rgba(255,255,255,0.5);
+}
+
+.kosong{
+    text-align:center;
+    color:#666;
+    padding:20px;
+    font-style:italic;
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    color:white;
+    padding:30px;
+    font-size:14px;
+    position:relative;
+    z-index:2;
 }
 </style>
 </head>
 
 <body>
 
+<!-- Logo -->
+<img src="ppliterasi.jpeg" class="logo-kiri" alt="Logo Literasi">
+
+<!-- Navbar -->
+<nav>
+    <a href="beranda.html">Beranda</a>
+    <a href="koleksibuku.html">Koleksi Buku</a>
+    <a href="rakbuku.html">Rak Buku</a>
+</nav>
+
+<!-- Awan -->
 <div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-<div class="cloud cloud3"></div>
 
-<div class="container">
+<!-- Glitter -->
+<script>
+for(let i=0;i<50;i++){
+    let glitter=document.createElement('div');
+    glitter.classList.add('glitter');
 
-    <!-- Ganti dengan file logo -->
-    <img src="ppliterasi.jpeg" alt="LiterasiKuy" class="logo">
+    glitter.style.left=Math.random()*100+'%';
+    glitter.style.top=Math.random()*100+'%';
 
-    <h1 class="judul">LiterasiKuy</h1>
+    glitter.style.animationDuration=
+    (Math.random()*3+1)+'s';
 
-    <p class="subjudul">
-        Scroll E-Book Yuuu!!!! 
-    </p>
+    document.body.appendChild(glitter);
+}
+</script>
 
-    <button class="btn" onclick="mulaiBaca()">
-        Mulai Baca
-    </button>
+<!-- Judul -->
+<section class="hero">
+    <h1>📚 Rak Buku Literasi</h1>
+    <p>Jelajahi berbagai koleksi bacaan untuk menambah wawasan dan pengetahuan.</p>
+</section>
 
+<!-- Rak Buku -->
+<div class="rak-container">
+    <div class="rak">
+
+        <div class="lantai">
+            <div class="buku b1"></div>
+            <div class="buku b2"></div>
+            <div class="buku b3"></div>
+            <div class="buku b4"></div>
+            <div class="buku b5"></div>
+            <div class="buku b6"></div>
+            <div class="buku b7"></div>
+            <div class="buku b8"></div>
+        </div>
+
+        <div class="lantai">
+            <div class="buku b8"></div>
+            <div class="buku b7"></div>
+            <div class="buku b6"></div>
+            <div class="buku b5"></div>
+            <div class="buku b4"></div>
+            <div class="buku b3"></div>
+            <div class="buku b2"></div>
+            <div class="buku b1"></div>
+        </div>
+
+        <div class="lantai">
+            <div class="buku b3"></div>
+            <div class="buku b5"></div>
+            <div class="buku b7"></div>
+            <div class="buku b2"></div>
+            <div class="buku b8"></div>
+            <div class="buku b4"></div>
+            <div class="buku b1"></div>
+            <div class="buku b6"></div>
+        </div>
+
+    </div>
 </div>
 
-<script>
-function mulaiBaca(){
-    document.body.style.transition="1s";
-    document.body.style.opacity="0";
+<!-- Daftar Buku yang Disimpan -->
+<div class="daftarRak-container">
+    <h2>📖 Buku Saya</h2>
+    <div id="daftarRak"></div>
+</div>
 
-    setTimeout(()=>{
-        window.location.href="beranda.html";
-    },1000);
+<div class="footer">
+    © 2026 Ruang Literasi Digital
+</div>
+
+<!-- Script -->
+<script>
+
+function bukaBuku(file){
+    window.open(file,"_blank");
 }
+
+// Auto-fix data lama yang tidak lengkap
+function fixOldData(){
+    let rak = JSON.parse(localStorage.getItem("rakBuku")) || [];
+    
+    // Jika ada data dengan format lama (string), hapus
+    let isOldFormat = rak.some(item => typeof item === 'string');
+    
+    if(isOldFormat){
+        localStorage.removeItem("rakBuku");
+        console.log("✅ Data lama telah dihapus. Silakan simpan buku baru!");
+    }
+}
+
+function tampilkanRakBuku(){
+    let rak = JSON.parse(localStorage.getItem("rakBuku")) || [];
+    let daftarRak = document.getElementById("daftarRak");
+    
+    daftarRak.innerHTML = "";
+    
+    if(rak.length === 0){
+        daftarRak.innerHTML = '<p class="kosong">Belum ada buku yang disimpan. Kunjungi Koleksi Buku untuk menambahkan! 📚</p>';
+        return;
+    }
+    
+    let ul = document.createElement("ul");
+    ul.className = "daftarRak-list";
+    
+    rak.forEach((buku, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = `
+            <span>${index + 1}. ${buku.judul}</span>
+            <div>
+                <button onclick="bukaBuku('${buku.file}')">📖 Baca</button>
+                <button onclick="hapusBuku(${index})">❌ Hapus</button>
+            </div>
+        `;
+        ul.appendChild(li);
+    });
+    
+    daftarRak.appendChild(ul);
+}
+
+function hapusBuku(index){
+    let rak = JSON.parse(localStorage.getItem("rakBuku")) || [];
+    rak.splice(index, 1);
+    localStorage.setItem("rakBuku", JSON.stringify(rak));
+    tampilkanRakBuku();
+    alert("Buku berhasil dihapus dari rak!");
+}
+
+// Tampilkan rak buku saat halaman dimuat
+document.addEventListener("DOMContentLoaded", () => {
+    fixOldData();
+    tampilkanRakBuku();
+});
+
+// Refresh otomatis setiap kali tab/window aktif kembali
+window.addEventListener("focus", tampilkanRakBuku);
+
 </script>
 
 </body>
 </html>
-
